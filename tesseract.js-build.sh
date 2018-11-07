@@ -11,14 +11,14 @@ check_command() {
 }
 
 clean() {
-  docker run \
+  docker run -it \
     -v ${PWD}:/src \
     trzeci/emscripten:sdk-tag-1.38.16-64bit \
     sh -c 'cd ./src && emmake make -f makefile.static clean'
 }
 
 compile() {
-  docker run \
+  docker run -it \
     -v ${PWD}:/src \
     trzeci/emscripten:sdk-tag-1.38.16-64bit \
     sh -c 'cd ./src && emmake make -f makefile.static'
