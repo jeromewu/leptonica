@@ -2,7 +2,7 @@
 *~
 
 # build directories
-/build*
+/build
 /.cppan*
 /win*
 
