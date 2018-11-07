@@ -5,6 +5,8 @@
 # Before running this script, you need to install docker first.
 #
 
+EMSCRIPTEN_VERSION=sdk-tag-1.38.16-64bit
+
 check_command() {
   CMD=$1
   command -v $CMD >/dev/null 2>&1 || { echo >&2 "$CMD is not installed  Aborting."; exit 1; }
@@ -13,14 +15,14 @@ check_command() {
 clean() {
   docker run -it \
     -v ${PWD}:/src \
-    trzeci/emscripten:sdk-tag-1.38.16-64bit \
+    trzeci/emscripten:$EMSCRIPTEN_VERSION \
     sh -c 'cd ./src && emmake make -f makefile.static clean'
 }
 
 compile() {
   docker run -it \
     -v ${PWD}:/src \
-    trzeci/emscripten:sdk-tag-1.38.16-64bit \
+    trzeci/emscripten:$EMSCRIPTEN_VERSION \
     sh -c 'cd ./src && emmake make -f makefile.static'
 }
 
