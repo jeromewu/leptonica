@@ -14,7 +14,9 @@ To build for tesseract.js, you can execute tesseract.js-build.sh
 $ sh tesseract.js-build.sh
 ```
 
-> As we use docker to build, you need to install docker first.
+You can find compiled objects in **obj/nodebug**.
+
+> As we use docker to build, you need to install [docker](https://www.docker.com/) first.
 
 ## The library supports many operations that are useful on ##
 
