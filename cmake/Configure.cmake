@@ -75,13 +75,15 @@ set(functions_list
 )
 check_functions(functions_list)
 
-test_big_endian(BIG_ENDIAN)
+#test_big_endian(BIG_ENDIAN)
 
-if(BIG_ENDIAN)
-  set(ENDIANNESS L_BIG_ENDIAN)
-else()
-  set(ENDIANNESS L_LITTLE_ENDIAN)
-endif()
+#if(BIG_ENDIAN)
+#  set(ENDIANNESS L_BIG_ENDIAN)
+#else()
+#  set(ENDIANNESS L_LITTLE_ENDIAN)
+#endif()
+
+set(ENDIANNESS L_LITTLE_ENDIAN)
 
 set(APPLE_UNIVERSAL_BUILD "defined (__APPLE_CC__)")
 configure_file(
