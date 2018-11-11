@@ -5,6 +5,7 @@
 /build
 /.cppan*
 /win*
+/usr
 
 # files in prog without a .
 /prog/*
