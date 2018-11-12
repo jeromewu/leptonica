@@ -132,6 +132,7 @@ configure_file(
 
 add_definitions(-DHAVE_CONFIG_H)
 
+include_directories(libtiff/usr/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/src)
 
