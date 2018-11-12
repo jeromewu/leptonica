@@ -95,6 +95,13 @@ if (WIN32)
     endif()
 endif()
 
+if (UNIX)
+    # Optimize code for size reduction
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Oz")
+    # LLVM link-time optimization, this flag solves the issue of [Invalid SIMD cast between items of different bit sizes]
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --llvm-lto 1")
+endif()
+
 ###############################################################################
 #
 # configure

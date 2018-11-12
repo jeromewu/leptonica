@@ -16,7 +16,7 @@ build() {
   docker run -it \
     -v ${PWD}:/src \
     trzeci/emscripten:$EMSCRIPTEN_VERSION \
-    sh do-build.sh
+    sh build-js.sh
 }
 
 main() {
