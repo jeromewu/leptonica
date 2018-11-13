@@ -47,6 +47,9 @@ set(VERSION_PLAIN ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
 
 option(BUILD_PROG "Build utility programs" OFF)
 
+set(TIFF_LIBRARY ${CMAKE_SOURCE_DIR}/libtiff/usr/lib/libtiff.a)
+set(TIFF_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/libtiff/usr/include)
+
 if(NOT EXISTS ${PROJECT_SOURCE_DIR}/.cppan)
     find_package(GIF)
     find_package(JPEG)

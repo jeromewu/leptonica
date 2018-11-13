@@ -14,8 +14,6 @@ build_leptonica() {
   mkdir build
   cd build
   emmake cmake .. \
-    -DTIFF_LIBRARY=libtiff/usr/lib/libtiff.a \
-    -DTIFF_INCLUDE_DIR=libtiff/usr/include \
     -DCMAKE_INSTALL_PREFIX=../usr \
     -DSTATIC=ON
   emmake make install -j4
