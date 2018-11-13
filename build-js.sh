@@ -13,6 +13,13 @@ build_zlib() {
   cd ..
 }
 
+build_libjpeg() {
+  cd libjpeg
+  emconfigure ./configure --prefix=${PWD}/../usr
+  emmake make install -j4
+  cd ..
+}
+
 build_libpng() {
   cd libpng
   emconfigure ./configure --prefix=${PWD}/../usr
@@ -38,6 +45,7 @@ build_leptonica() {
 
 main() {
   build_zlib
+  build_libjpeg
   build_libpng
   build_libtiff
   build_leptonica

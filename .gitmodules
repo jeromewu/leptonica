@@ -7,3 +7,6 @@
 [submodule "libpng"]
 	path = libpng
 	url = https://github.com/glennrp/libpng.git
+[submodule "libjpeg"]
+	path = libjpeg
+	url = git@github.com:LuaDist/libjpeg.git
