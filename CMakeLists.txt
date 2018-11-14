@@ -49,6 +49,8 @@ option(BUILD_PROG "Build utility programs" OFF)
 
 set(TIFF_LIBRARY ${CMAKE_SOURCE_DIR}/libtiff/usr/lib/libtiff.a)
 set(TIFF_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/libtiff/usr/include)
+set(ZLIB_LIBRARY ${CMAKE_SOURCE_DIR}/zlib/usr/lib/libz.a)
+set(ZLIB_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/zlib/usr/include)
 
 if(NOT EXISTS ${PROJECT_SOURCE_DIR}/.cppan)
     find_package(GIF)

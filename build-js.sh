@@ -3,6 +3,13 @@
 # This script is for testing build using emscripten
 #
 
+build_zlib() {
+  cd zlib
+  emconfigure ./configure --prefix=${PWD}/usr
+  emmake make install -j4
+  cd ..
+}
+
 build_libtiff() {
   cd libtiff
   emconfigure ./configure --prefix=${PWD}/usr
@@ -11,7 +18,8 @@ build_libtiff() {
 }
 
 build_leptonica() {
-  mkdir build
+  rm -rf build
+  mkdir -p build
   cd build
   emmake cmake .. \
     -DCMAKE_INSTALL_PREFIX=../usr \
@@ -20,6 +28,7 @@ build_leptonica() {
 }
 
 main() {
+  build_zlib
   build_libtiff
   build_leptonica
 }
