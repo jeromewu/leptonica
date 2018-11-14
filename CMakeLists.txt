@@ -47,11 +47,6 @@ set(VERSION_PLAIN ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
 
 option(BUILD_PROG "Build utility programs" OFF)
 
-set(TIFF_LIBRARY ${CMAKE_SOURCE_DIR}/libtiff/usr/lib/libtiff.a)
-set(TIFF_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/libtiff/usr/include)
-set(ZLIB_LIBRARY ${CMAKE_SOURCE_DIR}/zlib/usr/lib/libz.a)
-set(ZLIB_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/zlib/usr/include)
-
 if(NOT EXISTS ${PROJECT_SOURCE_DIR}/.cppan)
     find_package(GIF)
     find_package(JPEG)
@@ -137,7 +132,7 @@ configure_file(
 
 add_definitions(-DHAVE_CONFIG_H)
 
-include_directories(libtiff/usr/include)
+include_directories(${CMAKE_SOURCE_DIR}/usr/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/src)
 
