@@ -5,7 +5,7 @@
 # Before running this script, you need to install docker first.
 #
 
-EMSCRIPTEN_VERSION=sdk-tag-1.38.16-64bit
+EMSCRIPTEN_VERSION=1.38.45
 
 check_command() {
   CMD=$1
@@ -15,8 +15,8 @@ check_command() {
 build() {
   docker run -it \
     -v ${PWD}:/src \
-    trzeci/emscripten:$EMSCRIPTEN_VERSION \
-    sh build-js.sh
+    trzeci/emscripten:${EMSCRIPTEN_VERSION} \
+    sh -c "sh ./build-js.sh"
 }
 
 main() {

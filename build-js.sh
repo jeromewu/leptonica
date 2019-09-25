@@ -3,34 +3,46 @@
 # This script is for testing build using emscripten
 #
 
+NPROC=$(cat /proc/cpuinfo | awk '/^processor/{print $3}' | wc -l)
 export CPPFLAGS="-I${PWD}/usr/include"
 export LDFLAGS="-L${PWD}/usr/lib"
 
 build_zlib() {
   cd zlib
-  emconfigure ./configure --prefix=${PWD}/../usr
-  emmake make install -j4
-  cd ..
+  rm zconf.h
+  mkdir -p build
+  cd build
+  emmake cmake .. \
+    -DCMAKE_INSTALL_PREFIX=${PWD}/../../usr
+  emmake make install -j${NPROC}
+  cd ../..
 }
 
 build_libjpeg() {
   cd libjpeg
-  emconfigure ./configure --prefix=${PWD}/../usr
-  emmake make install -j4
-  cd ..
+  mkdir -p build
+  cd build
+  emmake cmake .. \
+    -DCMAKE_INSTALL_PREFIX=${PWD}/../../usr
+  emmake make install -j${NPROC}
+  cd ../..
 }
 
 build_libpng() {
   cd libpng
-  emconfigure ./configure --prefix=${PWD}/../usr
-  emmake make install -j4
-  cd ..
+  mkdir -p build
+  cd build
+  emmake cmake .. \
+    -DCMAKE_INSTALL_PREFIX=${PWD}/../../usr \
+    -D M_LIBRARY:PATH=/usr/lib/x86_64-linux-gnu
+  emmake make install -j${NPROC}
+  cd ../..
 }
 
 build_libtiff() {
   cd libtiff
   emconfigure ./configure --prefix=${PWD}/../usr
-  emmake make install -j4
+  emmake make install -j${NPROC}
   cd ..
 }
 
@@ -40,7 +52,7 @@ build_leptonica() {
   cd build
   emmake cmake .. \
     -DCMAKE_INSTALL_PREFIX=../usr
-  emmake make install -j4
+  emmake make install -j${NPROC}
 }
 
 main() {
