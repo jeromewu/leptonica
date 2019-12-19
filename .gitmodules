@@ -9,4 +9,4 @@
 	url = https://github.com/glennrp/libpng.git
 [submodule "libjpeg"]
 	path = libjpeg
-	url = git@github.com:LuaDist/libjpeg.git
+	url = https://github.com/LuaDist/libjpeg.git
