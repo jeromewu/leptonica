@@ -30,7 +30,7 @@ build_zlib() {
   cd ${CUR_DIR}
 }
 
-build_libm() {                                                                                                                                        [71/649]
+build_libm() {
   cd openlibm
   git checkout v0.7.0 Make.inc
   sed -i 's/CC = $(TOOLPREFIX)gcc/CC = $(TOOLPREFIX)emcc/g' Make.inc
@@ -69,7 +69,7 @@ build_libpng() {
   cd ${CUR_DIR}
 }
 
-build_libtiff() {                                                                                                                                     [32/649]
+build_libtiff() {
   cd libtiff
   emconfigure ./configure \
     --prefix=${INSTALL_DIR} \
